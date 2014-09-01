@@ -1,0 +1,25 @@
+CHANGES
+========
+
+2011.201 Last significant commit to code.google.com/p/aima-python -- 2011
+------
+
+* svn commit number 201
+* committed by "withal"
+
+2013.202 Correction committed to code.google.com/p/aima-python -- 2011
+------
+
+* svn commit number 202
+* committed by "withal"
+
+2014.0 logistics refactoring, port repo to git and make pypi+github-friendly
+---------
+
+* move code to folder named after pypi package (aima)
+* svn repo authors and commit history ported to git and pushed to github
+* setup.py and aima/__init__.py (with version and authors) added by Hobson
+* CHANGES.txt, LICENSE.txt (MIT)
+* svn wiki ported to README as markdown
+* empty requirements.txt
+* .travis.yml for continuous deployment testing and green button on github
