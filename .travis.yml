@@ -1,0 +1,12 @@
+language: python
+python:
+  - "2.7"
+
+# install dependencies (AIMA has none!)
+pip install -r requirements.txt
+
+# run tests embedded in docstring "examples" using the doctest module
+python doctests.py *.py
+
+# what files does setup.py test run?
+#python setup.py test
