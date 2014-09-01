@@ -7,7 +7,7 @@ CHANGES
 * svn commit number 201
 * committed by "withal"
 
-2013.202 Correction committed to code.google.com/p/aima-python -- 2011
+2013.202 Darius fixed "Issue 35" on code.google.com/p/aima-python -- 2013
 ------
 
 * svn commit number 202

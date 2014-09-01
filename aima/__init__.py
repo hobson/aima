@@ -22,7 +22,7 @@
 __version__ = '2014.0'
 __authors__ = [
     'Peter Norvig <peter.norvig@gmail.com>',
-    'Withal <withal@gmail.com>',
+    'Darius Bacon <withal@gmail.com>',
     'Spotted Metal? <spottedMetal@gmail.com>',
     'S R Burnet? <srburnet@gmail.com>',
     'Phil Ruggera',

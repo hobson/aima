@@ -16,7 +16,7 @@ dependency_links=[req.url for req in requirements if req.url]
 try:
     import pypandoc
     long_description = pypandoc.convert('README.md', 'rst')
-except (IOError, ImportError):
+except (IOError, ImportError, OSError):
     try:
         long_description = open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
     except:
