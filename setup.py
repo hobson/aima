@@ -15,10 +15,18 @@ try:
 except:
     requirements = []
 install_requires=[str(req).split(' ')[0].strip() for req in requirements if req.req and not req.url]
-print 'requires: %r' % install_requires
+# print 'requires: %r' % install_requires
 dependency_links=[req.url for req in requirements if req.url]
-print 'dependcies: %r' % dependency_links
+# print 'dependencies: %r' % dependency_links
 
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except (IOError, ImportError):
+    try:
+        long_description = open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
+    except:
+        long_description = package_name
 
 setup(
     name = package_name,
@@ -28,10 +36,10 @@ setup(
     dependency_links = dependency_links,
     version = __version__,
     description = __doc__,
-    long_description = open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
+    long_description = long_description,
     author = ', '.join(__authors__),
     author_email = "peter.norvig@gmail.com",
-    #tests_require = ['django-setuptest', 'south'],
+    #tests_require = ['doctest'],
     #test_suite = 'setuptest.setuptest.SetupTestSuite',
     #cmdclass = {'test': test},
     url = __github_url__,
@@ -41,8 +49,7 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.5",
         "Development Status :: 3 - Alpha",
-        "Environment :: Other Environment",
-        # "Environment :: Console",
+        "Environment :: Console",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
