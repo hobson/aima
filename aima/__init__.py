@@ -19,7 +19,7 @@
 # THE SOFTWARE.
 """aima -- Artificial Intelligence, A Modern Approach, by Stuart Russell and Peter Norrvig"""
 
-__version__ = '2014.0'
+__version__ = '2014.1'
 __authors__ = [
     'Peter Norvig <peter.norvig@gmail.com>',
     'Darius Bacon <withal@gmail.com>',
