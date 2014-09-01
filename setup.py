@@ -1,13 +1,9 @@
-# setup.py for aima
+# setup.py for aima package
 from distutils.core import setup
-#from setuptest import test
 
 from aima import __version__, __authors__, __github_url__
 from aima import __name__ as package_name
 import os
-# import sys
-
-# sys.path.insert(0, os.path.join(os.getcwd()))
 
 try:
     from pip.req import parse_requirements
@@ -15,9 +11,7 @@ try:
 except:
     requirements = []
 install_requires=[str(req).split(' ')[0].strip() for req in requirements if req.req and not req.url]
-# print 'requires: %r' % install_requires
 dependency_links=[req.url for req in requirements if req.url]
-# print 'dependencies: %r' % dependency_links
 
 try:
     import pypandoc
