@@ -1,19 +1,19 @@
 CHANGES
 ========
 
-2011.201 Last significant commit to code.google.com/p/aima-python -- 2011
+0.2011.201 Last significant commit to code.google.com/p/aima-python -- 2011
 ------
 
 * svn commit number 201
 * committed by "withal"
 
-2013.202 Correction committed to code.google.com/p/aima-python -- 2011
+0.2013.202 Correction committed to code.google.com/p/aima-python -- 2011
 ------
 
 * svn commit number 202
 * committed by "withal"
 
-2014.0 logistics refactoring, port repo to git and make pypi+github-friendly
+0.2014.0 logistics refactoring, port repo to git and make pypi+github-friendly
 ---------
 
 * move code to folder named after pypi package (aima)
