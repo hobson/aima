@@ -33,3 +33,18 @@ __authors__ = [
     'Ben Catanzariti',
     ]
 __github_url__ = "https://github.com/hobson/%s" % (__name__)
+
+
+
+import utils
+import text
+import search
+__all__ = ['utils', 'text', 'search']
+
+
+# import pkgutil
+# __all__ = []
+# for loader, module_name, is_pkg in  pkgutil.walk_packages(__path__):
+#     __all__.append(module_name)
+#     module = loader.find_module(module_name).load_module(module_name)
+#     exec('%s = module' % module_name)

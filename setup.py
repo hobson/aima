@@ -3,7 +3,6 @@ from distutils.core import setup
 
 from aima import __version__, __authors__, __github_url__
 from aima import __name__ as package_name
-import os
 
 try:
     from pip.req import parse_requirements
@@ -18,6 +17,7 @@ try:
     long_description = pypandoc.convert('README.md', 'rst')
 except (IOError, ImportError, OSError):
     try:
+        import os
         long_description = open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
     except:
         long_description = package_name
