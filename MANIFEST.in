@@ -4,6 +4,7 @@
 include README.md LICENSE IMAGE-CREDITS
 include *.txt
 include *.md
+include data
 include aima/images
 include *.svg
 include *.jpg

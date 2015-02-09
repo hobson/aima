@@ -1,8 +1,13 @@
-# setup.py for aima package
+# setup.py for aima package (Norvig & Russel, AI: Modern Approach)
 from distutils.core import setup
+import os
 
-from aima import __version__, __authors__, __github_url__
+from aima import __version__ as version
+from aima import __authors__, __github_url__
+from aima import __doc__ as description
 from aima import __name__ as package_name
+
+print('Installing package named {0}. . .'.format(package_name))
 
 try:
     from pip.req import parse_requirements
@@ -10,35 +15,38 @@ try:
 except:
     requirements = []
 install_requires=[str(req).split(' ')[0].strip() for req in requirements if req.req and not req.url]
+print('requires: %r' % install_requires)
 dependency_links=[req.url for req in requirements if req.url]
+print('dependcies: %r' % dependency_links)
 
-try:
-    import pypandoc
-    long_description = pypandoc.convert('README.md', 'rst')
-except (IOError, ImportError, OSError):
-    try:
-        import os
-        long_description = open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
-    except:
-        long_description = package_name
+# try:
+#     import pypandoc
+#     long_description = pypandoc.convert('README.md', 'rst')
+# except (IOError, ImportError, OSError):
+#     try:
+#         import os
+#         long_description = open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
+#     except:
+#         long_description = package_name
+long_description = 'Python packages for the textbook "Artificial Intalligence: A Modern Approach" by Norvig and Russell.'
 
 setup(
     name = package_name,
-    packages = ["aima"],  # without this: Downloading/unpacking aima ... ImportError: No module named aima ... from aima import __version__, __name__, __doc__, _github_url_
+    packages = [package_name],  
     include_package_data = True,  # install non-.py files listed in MANIFEST.in (.js, .html, .txt, .md, etc)
     install_requires = install_requires,
     dependency_links = dependency_links,
-    version = __version__,
-    description = __doc__,
-    long_description = long_description,
+    version = version,
+    description = description,
+    long_description = long_description or open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
     author = ', '.join(__authors__),
     author_email = "peter.norvig@gmail.com",
     #tests_require = ['doctest'],
     #test_suite = 'setuptest.setuptest.SetupTestSuite',
     #cmdclass = {'test': test},
     url = __github_url__,
-    download_url = "%s/archive/v%s.tar.gz" % (__github_url__, __version__),
-    keywords = ["ai", "agent", "bot", "book", "textbook", "algorithm", "machine-learning", "search"],
+    download_url = "%s/archive/v%s.tar.gz" % (__github_url__, version),
+    keywords = ["ai", "ml", "artificial intelligence", "machine intelligence", "norvig", "russell", "agent", "bot", "book", "textbook", "algorithm", "machine-learning", "search"],
     classifiers = [
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.5",
@@ -49,6 +57,7 @@ setup(
         "Operating System :: OS Independent",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        "Topic :: Scientific/Engineering :: Visualization",
         "Topic :: Scientific/Engineering :: Mathematics",
         ],
 )

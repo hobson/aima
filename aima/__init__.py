@@ -17,9 +17,9 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-"""aima -- Artificial Intelligence, A Modern Approach, by Stuart Russell and Peter Norrvig"""
+"""aima -- Artificial Intelligence, A Modern Approach, by Stuart Russell and Peter Norvig"""
 
-__version__ = '2014.1'
+__version__ = '2015.2'
 __authors__ = [
     'Peter Norvig <peter.norvig@gmail.com>',
     'Darius Bacon <withal@gmail.com>',
@@ -31,15 +31,17 @@ __authors__ = [
     'Ted Nienstedt',
     'Jim Martin',
     'Ben Catanzariti',
+    'Hobson Lane <hobs@totalgood.com>'
     ]
 __github_url__ = "https://github.com/hobson/%s" % (__name__)
-
-
 
 import utils
 import text
 import search
-__all__ = ['utils', 'text', 'search']
+import probability
+import logic
+import rl
+__all__ = ['utils', 'text', 'search', 'probability', 'logic', 'rl']
 
 
 # import pkgutil
