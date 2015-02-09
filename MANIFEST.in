@@ -4,8 +4,14 @@
 include README.md LICENSE IMAGE-CREDITS
 include *.txt
 include *.md
-include data
-include aima/images
+include data/*.csv
+include data/*.log
+include data/*.txt
+include data/*.htm
+include data/*.html
+include aima/images/*.jpg
+include aima/images/*.svg
+include aima/images/IMAGE-CREDITS
 include *.svg
 include *.jpg
 
