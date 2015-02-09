@@ -45,7 +45,7 @@ setup(
     #test_suite = 'setuptest.setuptest.SetupTestSuite',
     #cmdclass = {'test': test},
     url = __github_url__,
-    download_url = "%s/archive/v%s.tar.gz" % (__github_url__, version),
+    download_url = "%s/tarball/%s" % (__github_url__, version),
     keywords = ["ai", "ml", "artificial intelligence", "machine intelligence", "norvig", "russell", "agent", "bot", "book", "textbook", "algorithm", "machine-learning", "search"],
     classifiers = [
         "Programming Language :: Python",
