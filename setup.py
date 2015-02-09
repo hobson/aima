@@ -1,5 +1,6 @@
 # setup.py for aima package (Norvig & Russel, AI: Modern Approach)
-from distutils.core import setup
+from setuptools import find_packages, setup
+
 import os
 
 from aima import __version__ as version
@@ -25,10 +26,11 @@ try:
 except (IOError, ImportError, OSError):
     long_description = 'Python packages implementing the algorithms and example code in the textbook "Artificial Intalligence: A Modern Approach" by Norvig and Russell.'
 
+EXCLUDE_FROM_PACKAGES = []
 
 setup(
     name = package_name,
-    packages = [package_name],  
+    packages=find_packages(exclude=EXCLUDE_FROM_PACKAGES),   #[package_name],  
     include_package_data = True,  # install non-.py files listed in MANIFEST.in (.js, .html, .txt, .md, etc)
     install_requires = install_requires,
     dependency_links = dependency_links,
