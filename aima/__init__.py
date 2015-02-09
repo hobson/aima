@@ -35,12 +35,12 @@ __authors__ = [
     ]
 __github_url__ = "https://github.com/hobson/%s" % (__name__)
 
-import utils
-import text
-import search
-import probability
-import logic
-import rl
+# import utils
+# import text
+# import search
+# import probability
+# import logic
+# import rl
 __all__ = ['utils', 'text', 'search', 'probability', 'logic', 'rl']
 
 
