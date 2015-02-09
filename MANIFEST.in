@@ -1,7 +1,7 @@
 # MANIFEST.in
 # list of non-Python files that should be included with every distribution (pip install)
 # no need to list *.py as they will always automatically be included
-include README.md LICENSE IMAGE-CREDITS
+include README.md LICENSE.txt
 include *.txt
 include *.md
 include data/*.csv
@@ -12,6 +12,4 @@ include data/*.html
 include aima/images/*.jpg
 include aima/images/*.svg
 include aima/images/IMAGE-CREDITS
-include *.svg
-include *.jpg
 
