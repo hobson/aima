@@ -4,7 +4,9 @@ The way to use this code is to subclass Problem to create a class of problems,
 then create problem instances and solve them with calls to the various search
 functions."""
 
-from utils import *
+from utils import PriorityQueue, FIFOQueue, Stack, 
+from utils import if_, unimplemented, memoize, infinity, update, abstract
+from utils import probability, argmax_random_tie
 import math, random, sys, time, bisect, string
 
 #______________________________________________________________________________
@@ -54,6 +56,8 @@ class Problem(object):
         abstract
 #______________________________________________________________________________
 
+from pug.decorators import force_hashable
+
 class Node:
     """A node in a search tree. Contains a pointer to the parent (the node
     that this is a successor of) and to the actual state for this node. Note
@@ -66,6 +70,7 @@ class Node:
 
     def __init__(self, state, parent=None, action=None, path_cost=0):
         "Create a search tree Node, derived from a parent by an action."
+        state = force_hashable(state)
         update(self, state=state, parent=parent, action=action,
                path_cost=path_cost, depth=0)
         if parent:
@@ -106,7 +111,7 @@ class Node:
         return isinstance(other, Node) and self.state == other.state
 
     def __hash__(self):
-        return hash(self.state)
+        return hash(force_hashable(self.state))
 
 #______________________________________________________________________________
 
@@ -502,6 +507,7 @@ australia = UndirectedGraph(Dict(
 australia.locations = Dict(WA=(120, 24), NT=(135, 20), SA=(135, 30),
                            Q=(145, 20), NSW=(145, 32), T=(145, 42), V=(145, 37))
 
+
 class GraphProblem(Problem):
     "The problem of searching a graph from one node to another."
     def __init__(self, initial, goal, graph):
@@ -545,7 +551,7 @@ class NQueensProblem(Problem):
     def actions(self, state):
         "In the leftmost empty column, try all non-conflicting rows."
         if state[-1] is not None:
-            return [] # All columns filled; no successors
+            return []  # All columns filled; no successors
         else:
             col = state.index(None)
             return [row for row in range(self.N)

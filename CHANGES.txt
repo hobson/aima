@@ -23,3 +23,9 @@ CHANGES
 * svn wiki ported to README as markdown
 * empty requirements.txt
 * .travis.yml for continuous deployment testing and green button on github
+
+2015.2.15 allow unhashable states in search.Node
+-----
+
+* add force_hashable() function
+* use `force_hashable()` when assigning states to nodes and hashing states

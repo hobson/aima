@@ -262,8 +262,10 @@ class Struct:
         args = ['%s=%s' % (k, repr(v)) for (k, v) in vars(self).items()]
         return 'Struct(%s)' % ', '.join(sorted(args))
 
+
 def update(x, **entries):
-    """Update a dict; or an object with slots; according to entries.
+    """Update a dict, or an object with slots, according to `entries` dict.
+
     >>> update({'a': 1}, a=10, b=20)
     {'a': 10, 'b': 20}
     >>> update(Struct(a=1), a=10, b=20)
