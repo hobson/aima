@@ -4,9 +4,9 @@ The way to use this code is to subclass Problem to create a class of problems,
 then create problem instances and solve them with calls to the various search
 functions."""
 
-from utils import PriorityQueue, FIFOQueue, Stack, 
-from utils import if_, unimplemented, memoize, infinity, update, abstract
-from utils import probability, argmax_random_tie
+from utils import PriorityQueue, FIFOQueue, Stack, Dict
+from utils import if_, unimplemented, memoize, infinity, update
+from utils import probability, argmax, argmax_random_tie, random_tests, weighted_sample_with_replacement
 import math, random, sys, time, bisect, string
 
 #______________________________________________________________________________
