@@ -19,7 +19,7 @@
 # THE SOFTWARE.
 """aima -- Artificial Intelligence, A Modern Approach, by Stuart Russell and Peter Norvig"""
 
-__version__ = '2015.2.15'
+__version__ = '2015.4.5'
 __authors__ = [
     'Peter Norvig <peter.norvig@gmail.com>',
     'Darius Bacon <withal@gmail.com>',
@@ -31,7 +31,7 @@ __authors__ = [
     'Ted Nienstedt',
     'Jim Martin',
     'Ben Catanzariti',
-    'Hobson Lane <hobs@totalgood.com>'
+    'Hobson Lane <admin@totalgood.com>'
     ]
 __github_url__ = "https://github.com/hobson/%s" % (__name__)
 
