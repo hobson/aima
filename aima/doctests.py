@@ -11,6 +11,8 @@ You can add stochastic tests with
     __doc__ += random_tests("...")
 """
 
+from aima.utils import ignore
+
 if __name__ == "__main__":
     import sys, glob, doctest
     args = [arg for arg in sys.argv[1:] if arg != '-v']

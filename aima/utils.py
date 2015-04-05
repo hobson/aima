@@ -3,6 +3,7 @@
 """
 
 from __future__ import generators
+
 import operator, math, random, copy, sys, os.path, bisect, re
 
 assert (2,5) <= sys.version_info < (3,), """\
@@ -772,7 +773,8 @@ Fig = {}
 #______________________________________________________________________________
 # Support for doctest
 
-def ignore(x): None
+def ignore(x):
+    pass
 
 def random_tests(text):
     """Some functions are stochastic. We want to be able to write a test

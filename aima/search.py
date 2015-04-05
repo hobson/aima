@@ -5,9 +5,13 @@ then create problem instances and solve them with calls to the various search
 functions."""
 
 from utils import PriorityQueue, FIFOQueue, Stack, Dict
+from utils import name, print_table, ignore
 from utils import if_, unimplemented, memoize, infinity, update
-from utils import probability, argmax, argmax_random_tie, random_tests, weighted_sample_with_replacement
-import math, random, sys, time, bisect, string
+from utils import probability, argmax, argmax_random_tie, random_tests
+from utils import distance, weighted_sample_with_replacement
+import math, random, sys, bisect
+import string
+import time
 
 #______________________________________________________________________________
 
@@ -56,7 +60,7 @@ class Problem(object):
         abstract
 #______________________________________________________________________________
 
-from pug.decorators import force_hashable
+# from pug.decorators import force_hashable
 
 class Node:
     """A node in a search tree. Contains a pointer to the parent (the node
@@ -70,7 +74,7 @@ class Node:
 
     def __init__(self, state, parent=None, action=None, path_cost=0):
         "Create a search tree Node, derived from a parent by an action."
-        state = force_hashable(state)
+        # state = force_hashable(state)
         update(self, state=state, parent=parent, action=action,
                path_cost=path_cost, depth=0)
         if parent:
@@ -111,7 +115,7 @@ class Node:
         return isinstance(other, Node) and self.state == other.state
 
     def __hash__(self):
-        return hash(force_hashable(self.state))
+        return hash(str(self.state))
 
 #______________________________________________________________________________
 
@@ -807,6 +811,14 @@ class InstrumentedProblem(Problem):
         return '<%4d/%4d/%4d/%s>' % (self.succs, self.goal_tests,
                                      self.states, str(self.found)[:4])
 
+
+def name(obj):
+    try:
+        return obj.__name__
+    except:
+        return str(obj)
+
+
 def compare_searchers(problems, header,
                       searchers=[breadth_first_tree_search,
                                  breadth_first_search, depth_first_graph_search,
@@ -822,14 +834,14 @@ def compare_searchers(problems, header,
 
 def compare_graph_searchers():
     """Prints a table of results like this:
->>> compare_graph_searchers()
-Searcher                      Romania(A, B)        Romania(O, N)         Australia          
-breadth_first_tree_search     <  21/  22/  59/B>   <1158/1159/3288/N>    <   7/   8/  22/WA>
-breadth_first_search          <   7/  11/  18/B>   <  19/  20/  45/N>    <   2/   6/   8/WA>
-depth_first_graph_search      <   8/   9/  20/B>   <  16/  17/  38/N>    <   4/   5/  11/WA>
-iterative_deepening_search    <  11/  33/  31/B>   < 656/1815/1812/N>    <   3/  11/  11/WA>
-depth_limited_search          <  54/  65/ 185/B>   < 387/1012/1125/N>    <  50/  54/ 200/WA>
-recursive_best_first_search   <   5/   6/  15/B>   <5887/5888/16532/N>   <  11/  12/  43/WA>"""
+    >>> compare_graph_searchers()
+    Searcher                      Romania(A, B)        Romania(O, N)         Australia          
+    breadth_first_tree_search     <  21/  22/  59/B>   <1158/1159/3288/N>    <   7/   8/  22/WA>
+    breadth_first_search          <   7/  11/  18/B>   <  19/  20/  45/N>    <   2/   6/   8/WA>
+    depth_first_graph_search      <   8/   9/  20/B>   <  16/  17/  38/N>    <   4/   5/  11/WA>
+    iterative_deepening_search    <  11/  33/  31/B>   < 656/1815/1812/N>    <   3/  11/  11/WA>
+    depth_limited_search          <  54/  65/ 185/B>   < 387/1012/1125/N>    <  50/  54/ 200/WA>
+    recursive_best_first_search   <   5/   6/  15/B>   <5887/5888/16532/N>   <  11/  12/  43/WA>"""
     compare_searchers(problems=[GraphProblem('A', 'B', romania),
                                 GraphProblem('O', 'N', romania),
                                 GraphProblem('Q', 'WA', australia)],
