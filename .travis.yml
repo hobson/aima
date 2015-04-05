@@ -20,7 +20,7 @@ install:
   # - pip install .
   - pip freeze
 script: 
-  - python doctests.py *.py
+  - python aima/doctests.py *.py
   # - python setup.py test
 notifications:
   email:

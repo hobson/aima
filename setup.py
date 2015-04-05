@@ -20,11 +20,11 @@ print('requires: %r' % install_requires)
 dependency_links=[req.url for req in requirements if req.url]
 print('dependcies: %r' % dependency_links)
 
+long_description = 'Python packages implementing the algorithms and example code in the textbook "Artificial Intalligence: A Modern Approach" by Norvig and Russell.'
 try:
-    import pypandoc
-    long_description = pypandoc.convert('README.md', 'rst')
-except (IOError, ImportError, OSError):
-    long_description = 'Python packages implementing the algorithms and example code in the textbook "Artificial Intalligence: A Modern Approach" by Norvig and Russell.'
+    long_description = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+except:
+    pass
 
 EXCLUDE_FROM_PACKAGES = []
 
@@ -36,7 +36,7 @@ setup(
     dependency_links = dependency_links,
     version = version,
     description = description,
-    long_description = long_description or open(os.path.join(os.path.dirname(__file__), 'README.md')).read(),
+    long_description = long_description,
     author = ', '.join(__authors__),
     author_email = "peter.norvig@gmail.com",
     #tests_require = ['doctest'],
