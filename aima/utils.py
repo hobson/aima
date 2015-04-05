@@ -729,6 +729,7 @@ class FIFOQueue(Queue):
     def __contains__(self, item):
         return item in self.A[self.start:]
 
+
 class PriorityQueue(Queue):
     """A queue in which the minimum (or maximum) element (as determined by f and
     order) is returned first. If order is min, the item with minimum f(x) is
@@ -736,21 +737,27 @@ class PriorityQueue(Queue):
     Also supports dict-like lookup."""
     def __init__(self, order=min, f=lambda x: x):
         update(self, A=[], order=order, f=f)
+
     def append(self, item):
         bisect.insort(self.A, (self.f(item), item))
+
     def __len__(self):
         return len(self.A)
+
     def pop(self):
         if self.order == min:
             return self.A.pop(0)[1]
         else:
             return self.A.pop()[1]
+
     def __contains__(self, item):
         return some(lambda (_, x): x == item, self.A)
+
     def __getitem__(self, key):
         for _, item in self.A:
             if item == key:
                 return item
+
     def __delitem__(self, key):
         for i, (value, item) in enumerate(self.A):
             if item == key:
